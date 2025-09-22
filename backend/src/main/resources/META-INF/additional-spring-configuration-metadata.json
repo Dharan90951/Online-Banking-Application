@@ -1,0 +1,43 @@
+{"properties": [
+  {
+    "name": "jwt.refresh.expiration",
+    "type": "java.lang.String",
+    "description": "A description for 'jwt.refresh.expiration'"
+  },
+  {
+    "name": "application.security.jwt.expiration",
+    "type": "java.lang.String",
+    "description": "A description for 'application.security.jwt.expiration'"
+  },
+  {
+    "name": "application.security.jwt.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'application.security.jwt.secret'"
+  },
+  {
+    "name": "app.notification.sms.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'app.notification.sms.enabled'"
+  },
+  {
+    "name": "app.notification.email.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'app.notification.email.enabled'"
+  },
+  {
+    "name": "app.security.two-factor-auth.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'app.security.two-factor-auth.enabled'"
+  },
+  {
+    "name": "app.account.initial-balance",
+    "type": "java.lang.String",
+    "description": "A description for 'app.account.initial-balance'"
+  },
+  {
+    "name": "app.frontend.url",
+    "type": "java.lang.String",
+    "description": "A description for 'app.frontend.url'"
+  }
+
+]}

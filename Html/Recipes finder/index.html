@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+        }
+
+        .card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-title {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .card-img-top {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        button {
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center my-5">
+        <h1 class="display-4 mb-4">Recipe Finder</h1>
+        <p class="lead">Enter ingredients you have, and find delicious recipes!</p>
+
+        <!-- Ingredient Input Form -->
+        <div class="mb-4">
+            <input type="text" id="ingredientInput" class="form-control" placeholder="Enter ingredients separated by commas (e.g., chicken, tomato, garlic)" />
+            <button id="findRecipes" class="btn btn-primary mt-3">Find Recipes</button>
+        </div>
+
+        <!-- Recipes Display Section -->
+        <div id="recipes" class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Recipe cards will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('findRecipes').addEventListener('click', function () {
+            let ingredients = document.getElementById('ingredientInput').value.trim();
+            if (ingredients) {
+                fetchRecipes(ingredients);
+            } else {
+                alert("Please enter some ingredients!");
+            }
+        });
+
+        async function fetchRecipes(ingredients) {
+            const apiKey = '77fb77418ca24ecbba1c16bfa5405296'; // Replace with your Spoonacular API key
+            const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=6&apiKey=${apiKey}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                displayRecipes(data);
+            } catch (error) {
+                console.error('Error fetching recipes:', error);
+                alert('Failed to fetch recipes. Please try again later.');
+            }
+        }
+
+        function displayRecipes(recipes) {
+            const recipesContainer = document.getElementById('recipes');
+            recipesContainer.innerHTML = ''; // Clear previous results
+
+            if (recipes.length === 0) {
+                recipesContainer.innerHTML = '<p>No recipes found. Try different ingredients.</p>';
+                return;
+            }
+
+            recipes.forEach(recipe => {
+                const recipeCard = document.createElement('div');
+                recipeCard.classList.add('col');
+
+                recipeCard.innerHTML = `
+                    <div class="card">
+                        <img src="https://spoonacular.com/recipeImages/${recipe.id}-312x231.jpg" class="card-img-top" alt="${recipe.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${recipe.title}</h5>
+                            <p class="card-text">Ready in ${recipe.readyInMinutes} minutes</p>
+                            <a href="https://spoonacular.com/recipes/${recipe.title.replace(/\s+/g, '-').toLowerCase()}-${recipe.id}" target="_blank" class="btn btn-info">View Recipe</a>
+                        </div>
+                    </div>
+                `;
+
+                recipesContainer.appendChild(recipeCard);
+            });
+        }
+    </script>
+
+    <!-- Bootstrap JS (optional for functionality) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

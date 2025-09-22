@@ -1,0 +1,18 @@
+/**
+ * Class description explaining purpose and responsibility
+ * @author Your Name
+ * @version 1.0
+ * @since 2024
+ */
+public class ExampleClass {
+    
+    /**
+     * Method description explaining what it does
+     * @param parameter description of parameter
+     * @return description of return value
+     * @throws ExceptionType when this exception occurs
+     */
+    public ReturnType methodName(ParameterType parameter) {
+        // Implementation comments for complex logic
+    }
+}

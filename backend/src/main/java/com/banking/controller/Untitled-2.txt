@@ -1,0 +1,10 @@
+/**
+ * Component description explaining its purpose and usage
+ * @param {Object} props - Component props
+ * @param {string} props.title - Title to display
+ * @returns {JSX.Element} Rendered component
+ */
+const ExampleComponent = ({ title }) => {
+    // State and effect explanations
+    // Complex logic comments
+};
