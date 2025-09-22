@@ -1,3 +1,14 @@
+# Output Preview
+
+<figure>
+  <figcaption>Frontpage (on desktop screen)</figcaption>
+  <img src="Screenshot 2025-09-22 001157.png" alt="Frontpage" width="700">
+</figure>
+<figure>
+  <figcaption>ProfilePage (on desktop screen)</figcaption>
+  <img src="Screenshot 2025-09-22 001129.png" alt="Frontpage" width="700">
+</figure>
+
 # Java Full-Stack Banking Application
 
 A comprehensive online banking application built with Java Spring Boot backend and React frontend.
@@ -195,3 +206,4 @@ We welcome contributions to this project! Please see the [CONTRIBUTING.md](CONTR
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.# Online-Banking-Application
 # Online-Banking-Application
+
